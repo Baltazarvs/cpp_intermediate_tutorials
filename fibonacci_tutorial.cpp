@@ -1,16 +1,21 @@
+// Created 2024 by Baltazarus
+// This simple program is used to demonstrate fibonacci sequence using recursion.
+// It also demonstrates how to use command line arguments:
+// 	exe_name.exe <n of step> <true|false display_iteration>
+
 #include <iostream>
 #include <regex>
 
-int fibbonacci(int n)
+int fibonacci(int n)
 {
-	if(n < 0)
-		return -1;
+	// It cannot be a negative number, so return negative as error.
+	if(n < 0) return -1;
 
 	if(n == 0)
 		return 0;
 	else if(n == 1)
 		return 1;
-	return fibbonacci(n - 1) + fibbonacci(n - 2);
+	return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 int main(int argc, char** argv)
@@ -47,11 +52,11 @@ int main(int argc, char** argv)
 		return 0;
 	}
 	
-	for(int i = 0; i < n && bIterate; ++i)
-		std::cout << fibbonacci(i) << ' ';
+	for(int i = 0; i <= n && bIterate; ++i)
+		std::cout << fibonacci(i) << ' ';
 
 	if(!bIterate)
-		std::cout << fibbonacci(n) << std::endl;
+		std::cout << fibonacci(n) << std::endl;
 
 	std::cout << std::endl;
 	return 0;
